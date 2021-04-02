@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Product List</a>
+    <select class="form-control" name="action">
+      <option value="delete">Delete</option>
+    </select>
+    <button type="button" class="btn btn-primary" (click)="this.deleteElements()">Apply</button>
+  </div>
+</nav>
+
+<hr />
+
+<div class="row">
+  <div class="card col-4 product_item" *ngFor="let item of this.product;">
+    <div class="card-body">
+      <input type="checkbox" class="delete_item" value="{{item.id}}" #product_element />
+      <h5 class="card-title">{{item.sku}}</h5>
+      <p class="card-text">
+        {{item.name}}<br />
+        {{item.price}}
+      </p>
+      <ul>
+        <li *ngFor="let attr of item.attributes;">{{attr.name}}: {{attr.value}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
